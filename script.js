@@ -1,11 +1,16 @@
-// Mobile Menu
+// ==============================
+// MOBILE MENU
+// ==============================
 
 const menuBtn = document.getElementById("menuBtn");
+
 const nav = document.getElementById("nav");
+
 
 menuBtn.addEventListener("click", function () {
 
     nav.classList.toggle("active");
+
 
     if (nav.classList.contains("active")) {
 
@@ -20,9 +25,12 @@ menuBtn.addEventListener("click", function () {
 });
 
 
-// Close mobile menu after clicking a link
+// ==============================
+// CLOSE MENU AFTER CLICK
+// ==============================
 
 const navLinks = document.querySelectorAll(".nav a");
+
 
 navLinks.forEach(function (link) {
 
