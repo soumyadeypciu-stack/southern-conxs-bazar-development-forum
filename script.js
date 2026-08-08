@@ -1,6 +1,4 @@
-// ==============================
-// MOBILE MENU
-// ==============================
+
 
 const menuBtn = document.getElementById("menuBtn");
 
@@ -25,9 +23,6 @@ menuBtn.addEventListener("click", function () {
 });
 
 
-// ==============================
-// CLOSE MENU AFTER CLICK
-// ==============================
 
 const navLinks = document.querySelectorAll(".nav a");
 
