@@ -1,110 +1,37 @@
-```javascript
-/* =========================
-   MOBILE MENU
-========================= */
+// Mobile Menu
 
-const menuToggle =
-    document.getElementById("menuToggle");
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.getElementById("nav");
 
-const nav =
-    document.getElementById("nav");
-
-
-menuToggle.addEventListener("click", () => {
+menuBtn.addEventListener("click", function () {
 
     nav.classList.toggle("active");
 
-
     if (nav.classList.contains("active")) {
 
-        menuToggle.textContent = "✕";
+        menuBtn.textContent = "✕";
 
     } else {
 
-        menuToggle.textContent = "☰";
+        menuBtn.textContent = "☰";
 
     }
 
 });
 
 
-/* =========================
-   CLOSE MENU
-========================= */
+// Close mobile menu after clicking a link
 
-const navLinks =
-    document.querySelectorAll(".nav a");
+const navLinks = document.querySelectorAll(".nav a");
 
+navLinks.forEach(function (link) {
 
-navLinks.forEach(link => {
-
-    link.addEventListener("click", () => {
+    link.addEventListener("click", function () {
 
         nav.classList.remove("active");
 
-        menuToggle.textContent = "☰";
+        menuBtn.textContent = "☰";
 
     });
 
 });
-
-
-/* =========================
-   CURRENT YEAR
-========================= */
-
-const year =
-    document.getElementById("year");
-
-
-year.textContent =
-    new Date().getFullYear();
-
-
-/* =========================
-   ACTIVE NAVIGATION
-========================= */
-
-const sections =
-    document.querySelectorAll("section[id]");
-
-
-window.addEventListener("scroll", () => {
-
-    let current = "";
-
-
-    sections.forEach(section => {
-
-        const sectionTop =
-            section.offsetTop - 150;
-
-
-        if (window.scrollY >= sectionTop) {
-
-            current =
-                section.getAttribute("id");
-
-        }
-
-    });
-
-
-    navLinks.forEach(link => {
-
-        link.classList.remove("active");
-
-
-        if (
-            link.getAttribute("href") ===
-            `#${current}`
-        ) {
-
-            link.classList.add("active");
-
-        }
-
-    });
-
-});
-```
