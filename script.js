@@ -1,6 +1,6 @@
-/* =====================================================
+/* =================================
    MOBILE MENU
-===================================================== */
+================================= */
 
 const menuBtn = document.getElementById("menuBtn");
 
@@ -9,26 +9,16 @@ const nav = document.getElementById("nav");
 
 menuBtn.addEventListener("click", function () {
 
-    nav.classList.toggle("active");
-
-
-    if (nav.classList.contains("active")) {
-
-        menuBtn.textContent = "✕";
-
-    } else {
-
-        menuBtn.textContent = "☰";
-
-    }
+    nav.classList.toggle("show");
 
 });
 
 
 
-/* =====================================================
+/* =================================
    CLOSE MOBILE MENU
-===================================================== */
+   AFTER CLICKING A LINK
+================================= */
 
 const navLinks = document.querySelectorAll(".nav a");
 
@@ -37,9 +27,7 @@ navLinks.forEach(function (link) {
 
     link.addEventListener("click", function () {
 
-        nav.classList.remove("active");
-
-        menuBtn.textContent = "☰";
+        nav.classList.remove("show");
 
     });
 
@@ -47,65 +35,23 @@ navLinks.forEach(function (link) {
 
 
 
-/* =====================================================
-   CONTACT FORM
-===================================================== */
-
-const contactForm = document.getElementById("contactForm");
-
-
-if (contactForm) {
-
-    contactForm.addEventListener("submit", function (event) {
-
-        event.preventDefault();
-
-
-        const name = document.getElementById("name").value;
-
-
-        alert(
-            "Thank you, " +
-            name +
-            "! Your message has been received."
-        );
-
-
-        contactForm.reset();
-
-    });
-
-}
-
-
-
-/* =====================================================
+/* =================================
    ACTIVE NAVIGATION
-===================================================== */
+================================= */
 
-const sections = document.querySelectorAll("section[id]");
-
+const sections = document.querySelectorAll("section");
 
 window.addEventListener("scroll", function () {
 
     let current = "";
 
-
     sections.forEach(function (section) {
 
-        const sectionTop = section.offsetTop - 150;
+        const sectionTop = section.offsetTop - 120;
 
-        const sectionHeight = section.offsetHeight;
+        if (window.scrollY >= sectionTop) {
 
-        const sectionId = section.getAttribute("id");
-
-
-        if (
-            window.scrollY >= sectionTop &&
-            window.scrollY < sectionTop + sectionHeight
-        ) {
-
-            current = sectionId;
+            current = section.getAttribute("id");
 
         }
 
@@ -116,10 +62,7 @@ window.addEventListener("scroll", function () {
 
         link.classList.remove("active");
 
-
-        if (
-            link.getAttribute("href") === "#" + current
-        ) {
+        if (link.getAttribute("href") === "#" + current) {
 
             link.classList.add("active");
 
